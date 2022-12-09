@@ -1,4 +1,4 @@
-import React, { useCallback, useRef } from 'react'
+import React, { useCallback, useRef, useState } from 'react'
 import Webcam from 'react-webcam'
 
 import { BsCircle } from 'react-icons/bs'
@@ -13,10 +13,11 @@ const VideoConstraints = {
 
 const WebcamCapture = () => {
     const webcamRef = useRef(null)
+    const [image, setImage] = useState(null)
 
     const captureCamera = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot()
-        console.log(imageSrc)
+        setImage(imageSrc)
     }, [webcamRef])
     return <>
         <div className="webcam__container">
@@ -33,6 +34,8 @@ const WebcamCapture = () => {
                 className='webcam__button'
                 onClick={captureCamera}
             />
+
+            <img src={image} alt='capture' />
         </div>
     </>
 }
