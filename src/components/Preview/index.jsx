@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { GrClose } from '../../utils/import'
+import { VscChromeClose } from '../../utils/import'
 import { resetCameraImage, selectCameraImage } from '../../features/cameraSlice'
 
 import './styles.scss'
@@ -21,7 +21,7 @@ const Preview = () => {
     }
     return <>
         <div className="preview">
-            <GrClose className='preview__close' onClick={closePreview} />
+            <VscChromeClose className='preview__close' onClick={closePreview} />
             <img src={cameraImage} alt='preview' />
         </div>
     </>
