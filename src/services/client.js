@@ -1,4 +1,7 @@
-import firebase from 'firebase'
+import { initializeApp } from 'firebase/app'
+import { getFirestore } from 'firebase/firestore'
+import { getAuth, GithubAuthProvider, signInWithPopup } from 'firebase/auth'
+import { getStorage } from 'firebase/storage'
 
 const firebaseConfig = {
     apiKey: import.meta.env.VITE_FIREBASE_APIKEY,
@@ -10,10 +13,15 @@ const firebaseConfig = {
     appId: import.meta.env.VITE_FIREBASE_APPID
 }
 
-const app = firebase.initializeApp(firebaseConfig)
-const db = app.firestore()
-const auth = firebase.auth()
-const storage = firebase.storage()
-const authProvider = new firebase.auth.GithubAuthProvider()
+const app = initializeApp(firebaseConfig)
+const db = getFirestore(app)
+const auth = getAuth(app)
+const storage = getStorage(app)
+const authProvider = getAuth(app)
+
+export const loginGithub = () => {
+    const githubProvider = new GithubAuthProvider()
+    signInWithPopup(authProvider, githubProvider)
+}
 
 export { db, auth, storage, authProvider }
