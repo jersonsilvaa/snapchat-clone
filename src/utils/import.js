@@ -3,6 +3,6 @@ import Preview from '../components/Preview'
 
 // Icons
 import { BsCircle } from 'react-icons/bs'
-import { GrClose } from 'react-icons/gr'
+import { VscChromeClose } from 'react-icons/vsc'
 
-export { Preview, BsCircle, GrClose }
+export { Preview, BsCircle, VscChromeClose }
