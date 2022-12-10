@@ -1,10 +1,13 @@
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
+
 import WebcamCapture from './components/WebcamCapture'
 
 const App = () => {
   return <>
-    Esto lo hago pa divertirme
-    <WebcamCapture />
+    <Routes>
+      <Route path='/' element={<WebcamCapture />} />
+    </Routes>
   </>
 }
 
