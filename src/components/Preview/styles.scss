@@ -9,3 +9,18 @@
     cursor: pointer;
     position: absolute;
 }
+
+.preview__toolbarRight {
+    right: 0;
+    color: #ffffff;
+    margin: 5px;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+}
+
+.preview__toolbarRight > .svg_icons {
+    cursor: pointer;
+    font-size: 20px !important;
+    margin-bottom: 8px;
+}
