@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { VscChromeClose, MdOutlineTextFields, MdCreate, BsMusicNote, FaStickyNote, IoMdAttach, BiCrop, MdTimer } from '../../utils/import'
+import { VscChromeClose, MdOutlineTextFields, MdCreate, BsMusicNote, FaStickyNote, IoMdAttach, BiCrop, MdTimer, IoSend } from '../../utils/import'
 import { resetCameraImage, selectCameraImage } from '../../features/cameraSlice'
 
 import './styles.scss'
@@ -32,6 +32,10 @@ const Preview = () => {
                 <MdTimer className='svg_icons' />
             </div>
             <img src={cameraImage} alt='preview' />
+            <div className='preview__footer'>
+                <h2>Enviar ahora</h2>
+                <IoSend className='preview__send' fontSize='small' />
+            </div>
         </div>
     </>
 }
