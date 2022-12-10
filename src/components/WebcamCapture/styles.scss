@@ -1,4 +1,14 @@
 .webcam__button {
+    left: 50%;
+    color: #ffffff;
     width: 25px;
     height: 25px;
+    cursor: pointer;
+    bottom: 0;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.webcam__container {
+    position: relative;
 }

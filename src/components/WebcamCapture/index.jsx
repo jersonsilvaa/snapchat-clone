@@ -1,7 +1,10 @@
-import React, { useCallback, useRef, useState } from 'react'
+import React, { useCallback, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import Webcam from 'react-webcam'
 
-import { BsCircle } from 'react-icons/bs'
+import { useDispatch } from 'react-redux'
+import { setCameraImage } from '../../features/cameraSlice'
+import { BsCircle } from '../../utils/import'
 
 import './styles.scss'
 
@@ -13,11 +16,13 @@ const VideoConstraints = {
 
 const WebcamCapture = () => {
     const webcamRef = useRef(null)
-    const [image, setImage] = useState(null)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const captureCamera = useCallback(() => {
         const imageSrc = webcamRef.current.getScreenshot()
-        setImage(imageSrc)
+        dispatch(setCameraImage(imageSrc))
+        navigate('/preview')
     }, [webcamRef])
     return <>
         <div className="webcam__container">
@@ -34,8 +39,6 @@ const WebcamCapture = () => {
                 className='webcam__button'
                 onClick={captureCamera}
             />
-
-            <img src={image} alt='capture' />
         </div>
     </>
 }
